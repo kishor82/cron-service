@@ -1,0 +1,13 @@
+{
+  "name": "cron_service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kishor Rathva",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.2"
+  }
+}
