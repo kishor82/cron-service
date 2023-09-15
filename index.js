@@ -1,5 +1,6 @@
 const cron = require('node-cron');
 const { resolve } = require('path');
+require('dotenv').config();
 const jobs = require('./jobs');
 const logger = require('./logger');
 
