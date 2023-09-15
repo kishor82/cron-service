@@ -21,7 +21,7 @@ Example:
 ```javascript
 module.exports = {
   MY_CRON: {
-    frequency: "1 * * * * *", // Runs every minutes
+    frequency: "1 * * * * *", // Runs every minute
     handler: "handlers/my_cron",
     args: "hello world!",
   },
