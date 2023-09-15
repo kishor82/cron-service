@@ -1,4 +1,5 @@
+const logger = require('../logger');
 
 module.exports = (message) => {
-    console.log(message);
+    logger.info("Hello World!")
 };
