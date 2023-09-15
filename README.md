@@ -20,11 +20,11 @@ Example:
 
 ```javascript
 module.exports = {
-  MY_CRON: {
-    frequency: "1 * * * * *", // Runs every minute
-    handler: "handlers/my_cron",
-    args: "hello world!",
-  },
+  EVERY_MINUTE_CRON: {
+    frequency: '1 * * * * *', // Evey minute
+    handler: 'handlers/commonCronHandler',
+    args: 'This is a minute-by-minute task.'
+  }
 };
 ```
 
@@ -32,7 +32,7 @@ module.exports = {
 
 This directory contains handler functions that are executed when a job runs. Each handler is associated with a job in the `jobs.js` file.
 
-Example handler (`handlers/my_cron.js`):
+Example handler (`handlers/commonCronHandler.js`):
 
 ```
 module.exports = (message) => {
@@ -52,3 +52,7 @@ module.exports = (message) => {
 ## Customizing Jobs
 
 To customize or add new jobs, edit the `jobs.js` file with your desired job definitions.
+
+## Additional Resources
+
+- You can learn more about cron expressions and create your own using [crontab.guru](https://crontab.guru/).
