@@ -6,7 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "node-cron": "^3.0.2",
@@ -16,6 +20,9 @@
   },
   "devDependencies": {
     "eslint": "^8.49.0",
-    "eslint-plugin-check-file": "^2.6.2"
+    "eslint-plugin-check-file": "^2.6.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "3.0.3"
   }
 }
