@@ -1,5 +1,6 @@
 {
   "logger": {
     "level": "debug"
-  }
+  },
+  "name": "cron-service"
 }
