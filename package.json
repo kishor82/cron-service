@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "tsc"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
@@ -18,16 +19,20 @@
     "dotenv": "^16.3.1",
     "elastic-apm-node": "^4.1.0",
     "node-cron": "^3.0.2",
-    "winston": "^3.10.0",
+    "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1",
     "winston-elasticsearch": "^0.17.4",
-    "winston-sentry": "^0.2.1"
+    "winston-sentry-log": "^1.0.26"
   },
   "devDependencies": {
+    "@types/config": "^3.3.2",
+    "@types/node": "^20.8.9",
+    "@types/node-cron": "^3.0.10",
     "eslint": "^8.49.0",
     "eslint-plugin-check-file": "^2.6.2",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2"
   }
 }

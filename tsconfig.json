@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "dist",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "target": "ES2021",
+    "lib": ["ES2021"]
+  },
+  "include": ["*.ts", "handlers/**/*", "logger/**/*.ts"]
+}
