@@ -4,15 +4,15 @@ This documentation explains how the cron service works and how to set it up.
 
 ## Overview
 
-The cron service is designed to run scheduled tasks using the `node-cron` library. It reads job definitions from the `jobs.js` file and executes them based on their specified frequency.
+The cron service is designed to run scheduled tasks using the `node-cron` library. It reads job definitions from the `jobs.ts` file and executes them based on their specified frequency.
 
 ## Files
 
-### `index.js`
+### `index.ts`
 
-The main entry point of the cron service. It initializes the cron jobs defined in the `jobs.js` file.
+The main entry point of the cron service. It initializes the cron jobs defined in the `jobs.ts` file.
 
-### `jobs.js`
+### `jobs.ts`
 
 This file contains job definitions, including the frequency, handler, and arguments for each job.
 
@@ -30,9 +30,9 @@ module.exports = {
 
 ### `handlers/`
 
-This directory contains handler functions that are executed when a job runs. Each handler is associated with a job in the `jobs.js` file.
+This directory contains handler functions that are executed when a job runs. Each handler is associated with a job in the `jobs.ts` file.
 
-Example handler (`handlers/commonCronHandler.js`):
+Example handler (`handlers/commonCronHandler.ts`):
 
 ```
 module.exports = (message) => {
@@ -94,7 +94,7 @@ u
 
 ## Customizing Jobs
 
-To customize or add new jobs, edit the `jobs.js` file with your desired job definitions.
+To customize or add new jobs, edit the `jobs.ts` file with your desired job definitions.
 
 ## Additional Resources
 
