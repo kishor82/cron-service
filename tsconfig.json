@@ -17,5 +17,5 @@
     "target": "ES2021",
     "lib": ["ES2021"]
   },
-  "include": ["*.ts", "handlers/**/*.ts", "logger/**/*.ts"]
+  "include": [".eslintrc.js", "*.ts", "handlers/**/*.ts", "logger/**/*.ts"]
 }
