@@ -1,4 +1,4 @@
-import * as apm from 'elastic-apm-node';
+import apm from 'elastic-apm-node';
 import { name } from '../package.json';
 
 export const apmAgent = apm.start({

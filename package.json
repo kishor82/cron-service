@@ -5,14 +5,20 @@
   "author": "Kishor Rathva",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "prestart": "tsc",
+    "start": "node dist/index.js",
     "lint": "eslint .",
     "prepare": "husky install",
     "build": "tsc"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "*.js": "eslint"
+    "handlers/**/*.ts": [
+      "eslint --fix"
+    ],
+    "loggers/**/*.ts": [
+      "eslint --fix"
+    ],
+    "*.ts": "eslint --fix"
   },
   "dependencies": {
     "config": "^3.3.9",
@@ -28,6 +34,8 @@
     "@types/config": "^3.3.2",
     "@types/node": "^20.8.9",
     "@types/node-cron": "^3.0.10",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.49.0",
     "eslint-plugin-check-file": "^2.6.2",
     "husky": "^8.0.3",

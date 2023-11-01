@@ -1,12 +1,13 @@
 import config from 'config';
 import { transport } from 'winston';
 import { TransformableInfo } from 'logform';
+import { LoggerOptions } from '../../loggerService';
 
 export abstract class BaseTransport {
   protected transport: transport;
 
   protected timestampFormat = 'YYYY-MM-DD HH:mm:ss';
-  constructor() {
+  constructor(protected options: LoggerOptions) {
     this.transport = this.create();
   }
 

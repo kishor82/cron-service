@@ -1,39 +1,30 @@
 module.exports = {
-  env: {
-    commonjs: true,
-    es2021: true,
-    node: true,
-  },
-  extends: "eslint:recommended",
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
-      parserOptions: {
-        sourceType: "script",
-      },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
     },
-  ],
-  parserOptions: {
-    ecmaVersion: "latest",
-  },
-  plugins: ["check-file"],
-  rules: {
-    "check-file/filename-naming-convention": [
-      "error",
-      {
-        "**/*.{jsx,tsx}": "CAMEL_CASE",
-        "**/*.{js,ts}": "CAMEL_CASE",
-      },
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended"
     ],
-    "check-file/folder-naming-convention": [
-      "error",
-      {
-        "src/**/": "CAMEL_CASE",
-        "mocks/*/": "KEBAB_CASE",
-      },
-    ],
-  },
-};
+    "plugins": ['@typescript-eslint', 'check-file'], // Use @typescript-eslint for TypeScript
+    "rules": {
+        'check-file/filename-naming-convention': [
+            'error',
+            {
+                '**/*.{jsx,tsx}': 'CAMEL_CASE',
+                '**/*.{js,ts}': 'CAMEL_CASE'
+            }
+        ],
+        'check-file/folder-naming-convention': [
+            'error',
+            {
+                'handler/**/': 'CAMEL_CASE',
+                'logger/*/': 'KEBAB_CASE'
+            }
+        ]
+    }
+}

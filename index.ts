@@ -3,17 +3,20 @@ import { resolve } from 'path';
 import 'dotenv/config';
 
 import jobs from './jobs';
+import logger from './logger';
 
 const initCrons = () => {
   Object.keys(jobs).forEach((key) => {
-    console.log('inside init');
     if (validate(jobs[key].frequency)) {
-      // TODO: log here
-      console.log('jobs[key].frequency', jobs[key].frequency);
-      schedule(jobs[key].frequency, () => {
-        const handler = require(resolve(__dirname, jobs[key].handler));
-        console.log({ handler });
-        handler(jobs[key].args);
+      logger.log(`Job ${key} scheduled`);
+      schedule(jobs[key].frequency, async () => {
+        const handlerModule = await import(resolve(__dirname, jobs[key].handler));
+        const handler = handlerModule.default; // Access the default export
+        try {
+          handler(jobs[key].args);
+        } catch (e) {
+          console.error(e);
+        }
       });
     }
   });

@@ -3,7 +3,7 @@ import { BaseTransport } from '../utils/baseTransport';
 
 export class ConsoleTransport extends BaseTransport {
   constructor(protected readonly options: ConsoleLoggerOptions) {
-    super();
+    super(options);
   }
 
   public create(): transport {

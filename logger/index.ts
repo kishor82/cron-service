@@ -1,16 +1,14 @@
 import config from 'config';
-import { apmAgent } from './apm';
-import { LoggerService } from './logger.service';
+import { LoggerService } from './loggerService';
 
-export class Logger {
+export class Logger extends LoggerService {
   private static instance: Logger | null = null;
-  private loggerService: LoggerService;
 
   private constructor() {
     // Determine the environment (e.g., 'production' or 'development')
     const environment = process.env.NODE_ENV || 'development';
 
-    this.loggerService = new LoggerService({
+    super({
       transportOptions: [
         {
           name: 'Console',
@@ -33,10 +31,9 @@ export class Logger {
         },
         {
           name: 'elastic',
-          enable: true,
+          enable: false,
           options: {
             level: 'info',
-            apm: apmAgent,
             clientOpts: {
               node: 'http://localhost:9200',
               auth: {
@@ -59,8 +56,7 @@ export class Logger {
           enable: environment === 'production' && config.has('sentry.dsn')
         }
       ]
-    }); // Create an instance of LoggerService
-    // Additional initialization logic for the Logger class
+    });
   }
 
   static getInstance(): Logger {
@@ -68,11 +64,6 @@ export class Logger {
       Logger.instance = new Logger();
     }
     return Logger.instance;
-  }
-
-  log(message: string) {
-    // Use the LoggerService instance to log messages
-    this.loggerService.log(message);
   }
 }
 export default Logger.getInstance();

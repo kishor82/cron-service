@@ -1,6 +1,12 @@
-export default {
+interface CronJob {
+  frequency: string;
+  handler: string;
+  args: string;
+}
+
+const cronJobs: Record<string, CronJob> = {
   EVERY_MINUTE_CRON: {
-    frequency: '1 * * * * *', // Evey minute
+    frequency: '1 * * * * *', // Every minute
     handler: 'handlers/commonCronHandler',
     args: 'This is a minute-by-minute task.'
   },
@@ -20,3 +26,5 @@ export default {
     args: "It's a special day!"
   }
 };
+
+export default cronJobs;

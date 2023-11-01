@@ -1,10 +1,10 @@
-import { transport, transports, format } from 'winston';
+import { transport } from 'winston';
 import { BaseTransport } from '../utils/baseTransport';
 import Sentry from 'winston-sentry-log';
 
 export class SentryTransport extends BaseTransport {
   constructor(protected readonly options: SentryLoggerOptions) {
-    super();
+    super(options);
   }
 
   public create(): transport {
@@ -20,5 +20,6 @@ export class SentryTransport extends BaseTransport {
 export interface SentryLoggerOptions {
   name: 'Sentry';
   enable: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: any;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Logger, createLogger, transport } from 'winston';
 import {
   ConsoleLoggerOptions,
@@ -9,8 +10,9 @@ import {
   SentryLoggerOptions
 } from './winston/transports';
 
+export type LoggerOptions = ConsoleLoggerOptions | FileLoggerOptions | ElasticLoggerOptions | SentryLoggerOptions;
 export interface LoggerConfig {
-  transportOptions: (ConsoleLoggerOptions | FileLoggerOptions | ElasticLoggerOptions | SentryLoggerOptions)[];
+  transportOptions: LoggerOptions[];
 }
 
 export class LoggerService {
